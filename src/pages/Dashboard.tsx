@@ -19,7 +19,7 @@ const Dashboard: React.FC = () => {
     const fetchMovies = async () => {
       try {
         const data = await getMethod(
-          `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=iron`
+          `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=iron`
         );
         if (data?.Search?.length > 0) {
           setMovies(data?.Search);
