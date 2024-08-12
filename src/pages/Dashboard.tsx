@@ -3,11 +3,11 @@ import { getMethod } from "../utlility/rest";
 import MovieCard from "../components/MoviesCard";
 
 interface Movie {
-  id: number;
-  movie: string;
-  rating: number;
-  image: string;
-  imdb_url: string;
+  Poster: string;
+  Title: string;
+  Type: string;
+  Year: string;
+  imdbID: string;
 }
 
 const Dashboard: React.FC = () => {
@@ -18,10 +18,12 @@ const Dashboard: React.FC = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const data: Movie[] = await getMethod(
-          "https://dummyapi.online/api/movies"
+        const data = await getMethod(
+          `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=iron`
         );
-        setMovies(data);
+        if (data?.Search?.length > 0) {
+          setMovies(data?.Search);
+        }
       } catch (err) {
         setError("Failed to load movies");
       } finally {
@@ -34,20 +36,18 @@ const Dashboard: React.FC = () => {
 
   if (loading) return <div className="centered-container">Loading...</div>;
   if (error) return <div className="centered-container">{error}</div>;
-
   return (
     <div className="dashboard-container">
-      <h1 className="text-3xl font-bold">Movie Dashboard</h1>
+      <h1 className="text-3xl font-bold">Movie Listing</h1>
       <div className="movie-list">
         {movies.length > 0 ? (
           movies.map((movie) => (
             <MovieCard
-              key={movie.id}
-              id={movie.id}
-              title={movie.movie}
-              rating={movie.rating}
-              image={movie.image}
-              imdbUrl={movie.imdb_url}
+              Poster={movie.Poster}
+              Title={movie.Title}
+              Type={movie.Type}
+              Year={movie.Year}
+              imdbID={movie.imdbID}
             />
           ))
         ) : (

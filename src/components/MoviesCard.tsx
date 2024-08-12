@@ -1,41 +1,52 @@
 // src/components/MovieCard.tsx
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import dummyImage from "../assets/images/dummyImage.png";
+import React, { useState } from "react";
+import MovieModal from "../components/Modal";
+
 interface MovieCardProps {
-  id: number;
-  title: string;
-  rating: number;
-  image: string;
-  imdbUrl: string;
+  Poster: string;
+  Title: string;
+  Type: string;
+  Year: string;
+  imdbID: string;
 }
 
 const MovieCard: React.FC<MovieCardProps> = ({
-  id,
-  title,
-  rating,
-  image,
-  imdbUrl,
+  Poster,
+  Title,
+  Type,
+  Year,
+  imdbID,
 }) => {
-  const navigate = useNavigate();
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleClick = () => {
-    navigate(`/dashboard/${id}`);
+    setIsModalVisible(true);
   };
-  console.log("image", image);
+
+  const handleClose = () => {
+    setIsModalVisible(false);
+  };
   return (
-    <div className="movie-card" onClick={handleClick}>
-      <img src={dummyImage} alt={title} className="movie-card-image" />
-      <h2 className="movie-card-title">{title}</h2>
-      <p className="movie-card-rating">Rating: {rating}</p>
-      <a
-        href={imdbUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="movie-card-link"
-      >
-        View on IMDb
-      </a>
+    <div className="movie-card">
+      <img
+        src={Poster}
+        alt={Title}
+        className="movie-card-image"
+        onClick={handleClick}
+      />
+      <h2 className="movie-card-title">{Title}</h2>
+      <p className="movie-card-rating">Year: {Year}</p>
+      <p className="movie-card-rating">Type: {Type}</p>
+
+      <MovieModal
+        visible={isModalVisible}
+        onClose={handleClose}
+        Poster={Poster}
+        Title={Title}
+        Type={Type}
+        Year={Year}
+        imdbID={imdbID}
+      />
     </div>
   );
 };

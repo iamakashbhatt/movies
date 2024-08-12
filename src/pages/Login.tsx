@@ -23,7 +23,7 @@ const Login: React.FC = () => {
     const { username, password } = values;
     if (username === "admin" && password === "admin") {
       localStorage.setItem("loginInfo", JSON.stringify(values));
-      navigate("/dashboard"); // Navigate to dashboard on successful login
+      navigate("/dashboard");
     } else {
       console.log("Login failed");
       form.setFields([
