@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f0f2f5;
+}
+
+/* src/App.css */
+
+.login-container {
+  width: 300px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.login-form .ant-form-item {
+  margin-bottom: 16px; /* Adds space between the input box and error message */
+}
+
+.login-form .ant-form-item-control-input {
+  margin-bottom: 0; /* Removes unnecessary bottom margin of input fields */
+}
+
+.login-form .ant-form-item-explain {
+  text-align: left; /* Aligns the error messages to the left */
+  margin-top: 4px;  /* Adds a small margin above the error message */
+  margin-bottom: 8px; /* Adds space below the error message */
+}
+
+.login-form-button {
+  width: 100%;
+}
+
+
+.dashboard-container {
+  text-align: center;
+}
+
+.dashboard-container h1 {
+  font-size: 2rem; /* Adjust as needed */
+  font-weight: bold;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Adjust spacing between cards */
+  margin-top: 20px; /* Space above the movie list */
+}
+
+.movie-card {
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+  width: 250px; /* Adjust card width */
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 150px; /* Adjust image height */
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.movie-card-title {
+  font-size: 1.25rem; /* Adjust title size */
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.movie-card-rating {
+  color: #555;
+  margin-top: 5px;
+}
+
+.movie-card-link {
+  color: #007bff;
+  text-decoration: none;
+  display: block;
+  margin-top: 10px;
+}
+
+.movie-card-link:hover {
+  text-decoration: underline;
+}
+.centered-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 1.5rem; /* Adjust font size as needed */
+  color: #333; /* Adjust color as needed */
+}
+
+/* dashboard card */
+
+.movie-details-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.movie-card {
+  max-width: 100%;
+}
+
+.movie-card-link {
+  display: block;
+  margin-top: 16px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.movie-card-link:hover {
+  text-decoration: underline;
+}
